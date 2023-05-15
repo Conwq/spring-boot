@@ -10,6 +10,7 @@ public class PersonMapper {
         personDTO.setId(person.getId());
         personDTO.setAge(person.getAge());
         personDTO.setName(person.getName());
+        personDTO.setBooks(person.getBooks());
         return personDTO;
     }
 
@@ -18,6 +19,7 @@ public class PersonMapper {
         person.setId(personDTO.getId());
         person.setAge(personDTO.getAge());
         person.setName(personDTO.getName());
+        person.setBooks(personDTO.getBooks());
         return person;
     }
 }
