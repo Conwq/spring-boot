@@ -6,6 +6,7 @@ import lombok.Data;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity(name = "Book")
 @Table(name = "Book")
@@ -18,6 +19,7 @@ public class Book {
     private int id;
 
     @Column(name = "name")
+    @NotBlank(message = "Name book cannot be empty")
     private String name;
 
     @Column(name = "author")

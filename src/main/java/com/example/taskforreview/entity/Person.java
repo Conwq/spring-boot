@@ -6,6 +6,7 @@ import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @Entity
@@ -20,10 +21,12 @@ public class Person {
     private int id;
 
     @Column(name = "name")
+    @NotBlank(message = "Name cannot be empty")
     private String name;
 
     @Column(name = "age")
-    @Min(value = 10,  message = "You mini")
+    @Min(value = 12, message = "Age cannot be less than 12 years old")
+    @NotBlank(message = "Age cannot be empty")
     private int age;
 
     @OneToMany(mappedBy = "person")

@@ -47,5 +47,4 @@ public class BookFacade {
         Book book = BookMapper.fromBook(bookDTO);
         bookService.updateBook(book);
     }
-
 }
