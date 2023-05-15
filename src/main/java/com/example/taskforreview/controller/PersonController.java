@@ -28,23 +28,19 @@ public class PersonController {
     }
 
     @DeleteMapping("/{id}")
-    public String deletePerson(@PathVariable("id") int id) {
+    public void deletePerson(@PathVariable("id") int id) {
         personFacade.deletePerson(id);
-        return "redirect:/api";
     }
 
     @PostMapping
-    public String addPerson(@RequestBody PersonDTO personDTO) {
+    public void addPerson(@RequestBody PersonDTO personDTO) {
         personFacade.addPerson(personDTO);
-        return "redirect:/api";
     }
 
     @PutMapping("/{id}")
-    public String updatePerson(@PathVariable("id") int id,
+    public void updatePerson(@PathVariable("id") int id,
                                @RequestBody(required = false) PersonDTO personDTO) {
-
         personDTO.setId(id);
         personFacade.updatePerson(personDTO);
-        return "redirect:/api";
     }
 }

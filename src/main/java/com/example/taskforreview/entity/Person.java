@@ -2,7 +2,6 @@ package com.example.taskforreview.entity;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
-import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
@@ -26,7 +25,6 @@ public class Person {
 
     @Column(name = "age")
     @Min(value = 12, message = "Age cannot be less than 12 years old")
-    @NotBlank(message = "Age cannot be empty")
     private int age;
 
     @OneToMany(mappedBy = "person")
