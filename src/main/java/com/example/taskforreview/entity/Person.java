@@ -28,7 +28,6 @@ public class Person {
     private int age;
 
     @OneToMany(mappedBy = "person")
-    @JsonManagedReference
     private List<Book> books;
 
     public Person() {

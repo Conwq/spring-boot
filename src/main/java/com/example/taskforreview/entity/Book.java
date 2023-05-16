@@ -1,6 +1,7 @@
 package com.example.taskforreview.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -25,7 +26,6 @@ public class Book {
 
     @ManyToOne
     @JoinColumn(name = "id_person")
-    @JsonBackReference
     private Person person;
 
     public Book(){
