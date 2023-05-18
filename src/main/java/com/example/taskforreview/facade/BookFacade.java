@@ -15,29 +15,32 @@ import java.util.List;
 public class BookFacade {
 
     private final BookService bookService;
+    private final BookMapper bookMapper;
 
     @Autowired
-    public BookFacade(BookService bookService) {
+    public BookFacade(BookService bookService,
+                      BookMapper bookMapper) {
         this.bookService = bookService;
+        this.bookMapper = bookMapper;
     }
 
     public BookDTO getBook(int id) {
         Book book = bookService.getBook(id);
-        return BookMapper.fromBookDTO(book);
+        return bookMapper.fromBookDTO(book);
     }
 
     public List<BookDTO> getBooks() {
         List<Book> books = bookService.getBooks();
         List<BookDTO> booksDTO = new ArrayList<>();
         for (Book book : books) {
-            BookDTO bookDTO = BookMapper.fromBookDTO(book);
+            BookDTO bookDTO = bookMapper.fromBookDTO(book);
             booksDTO.add(bookDTO);
         }
         return booksDTO;
     }
 
     public void addBook(BookDTO bookDTO) {
-        bookService.addBook(BookMapper.fromBook(bookDTO));
+        bookService.addBook(bookMapper.fromBook(bookDTO));
     }
 
     public void deleteBook(int id) {
@@ -45,7 +48,7 @@ public class BookFacade {
     }
 
     public void updateBook(BookDTO bookDTO) {
-        Book book = BookMapper.fromBook(bookDTO);
+        Book book = bookMapper.fromBook(bookDTO);
         bookService.updateBook(book);
     }
 }

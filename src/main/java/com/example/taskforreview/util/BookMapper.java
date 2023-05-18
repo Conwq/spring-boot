@@ -4,10 +4,12 @@ import com.example.taskforreview.dto.BookDTO;
 import com.example.taskforreview.dto.PersonDTO;
 import com.example.taskforreview.entity.Book;
 import com.example.taskforreview.entity.Person;
+import org.springframework.stereotype.Component;
 
+@Component
 public class BookMapper {
 
-    public static BookDTO fromBookDTO(Book book) {
+    public BookDTO fromBookDTO(Book book) {
         BookDTO bookDTO = new BookDTO();
         bookDTO.setId(book.getId());
         bookDTO.setName(book.getName());
@@ -15,7 +17,7 @@ public class BookMapper {
 
         Person person = book.getPerson();
 
-        if (person != null){
+        if (person != null) {
             PersonDTO personDTO = new PersonDTO();
             personDTO.setId(person.getId());
             personDTO.setName(person.getName());
@@ -25,14 +27,14 @@ public class BookMapper {
         return bookDTO;
     }
 
-    public static Book fromBook(BookDTO bookDTO) {
+    public Book fromBook(BookDTO bookDTO) {
         Book book = new Book();
         book.setId(bookDTO.getId());
         book.setName(bookDTO.getName());
         book.setAuthor(bookDTO.getAuthor());
 
         PersonDTO personDTO = bookDTO.getPerson();
-        if (personDTO != null){
+        if (personDTO != null) {
             Person person = new Person();
             person.setId(personDTO.getId());
             person.setName(personDTO.getName());

@@ -39,7 +39,7 @@ public class PersonController {
 
     @PutMapping("/{id}")
     public void updatePerson(@PathVariable("id") int id,
-                               @RequestBody(required = false) PersonDTO personDTO) {
+                             @RequestBody(required = false) PersonDTO personDTO) {
         personDTO.setId(id);
         personFacade.updatePerson(personDTO);
     }

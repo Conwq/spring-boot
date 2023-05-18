@@ -1,8 +1,6 @@
 package com.example.taskforreview.controller;
 
 import com.example.taskforreview.dto.BookDTO;
-import com.example.taskforreview.dto.PersonDTO;
-import com.example.taskforreview.entity.Person;
 import com.example.taskforreview.facade.BookFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

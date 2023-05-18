@@ -1,6 +1,5 @@
 package com.example.taskforreview.dto;
 
-import com.example.taskforreview.entity.Book;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
