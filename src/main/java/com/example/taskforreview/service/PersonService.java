@@ -2,7 +2,6 @@ package com.example.taskforreview.service;
 
 import com.example.taskforreview.entity.Person;
 import com.example.taskforreview.repository.PersonRepository;
-import com.example.taskforreview.testingRepository.PersonRepositoryRe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

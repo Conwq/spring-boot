@@ -1,6 +1,5 @@
 package com.example.taskforreview.entity;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -28,7 +27,6 @@ public class Person {
     private int age;
 
     @OneToMany(mappedBy = "person")
-    @JsonManagedReference
     private List<Book> books;
 
     public Person() {

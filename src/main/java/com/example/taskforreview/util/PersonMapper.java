@@ -1,7 +1,12 @@
 package com.example.taskforreview.util;
 
+import com.example.taskforreview.dto.BookDTO;
 import com.example.taskforreview.dto.PersonDTO;
+import com.example.taskforreview.entity.Book;
 import com.example.taskforreview.entity.Person;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PersonMapper {
 
@@ -10,7 +15,12 @@ public class PersonMapper {
         personDTO.setId(person.getId());
         personDTO.setAge(person.getAge());
         personDTO.setName(person.getName());
-        personDTO.setBooks(person.getBooks());
+
+        List<BookDTO> bookDTO = new ArrayList<>();
+        for (Book book : person.getBooks()) {
+            bookDTO.add(BookMapper.fromBookDTO(book));
+        }
+        personDTO.setBooks(bookDTO);
         return personDTO;
     }
 
@@ -19,7 +29,11 @@ public class PersonMapper {
         person.setId(personDTO.getId());
         person.setAge(personDTO.getAge());
         person.setName(personDTO.getName());
-        person.setBooks(personDTO.getBooks());
+        List<Book> book = new ArrayList<>();
+        for (BookDTO bookDTO : personDTO.getBooks()) {
+            book.add(BookMapper.fromBook(bookDTO));
+        }
+        person.setBooks(book);
         return person;
     }
 }

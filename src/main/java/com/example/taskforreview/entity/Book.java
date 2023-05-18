@@ -1,10 +1,8 @@
 package com.example.taskforreview.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 
 @Entity(name = "Book")
 @Table(name = "Book")
@@ -17,7 +15,6 @@ public class Book {
     private int id;
 
     @Column(name = "name")
-    @NotBlank(message = "Name book cannot be empty")
     private String name;
 
     @Column(name = "author")
@@ -25,7 +22,6 @@ public class Book {
 
     @ManyToOne
     @JoinColumn(name = "id_person")
-    @JsonBackReference
     private Person person;
 
     public Book(){

@@ -1,9 +1,8 @@
 package com.example.taskforreview.dto;
 
 import com.example.taskforreview.entity.Person;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
-
-import javax.validation.constraints.NotBlank;
 
 @Data
 public class BookDTO {
@@ -14,5 +13,7 @@ public class BookDTO {
 
     private String author;
 
-    private Person person;
+//    @JsonIgnore
+    @JsonBackReference
+    private PersonDTO person;
 }

@@ -31,7 +31,6 @@ public class BookController {
 
     @PostMapping
     public void addBook(@RequestBody BookDTO bookDTO) {
-        System.out.println(bookDTO.getPerson().getId());
         bookFacade.addBook(bookDTO);
     }
 
